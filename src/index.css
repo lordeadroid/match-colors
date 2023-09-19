@@ -6,7 +6,7 @@
 }
 
 .cells {
-  height: 475px;
+  width: 675px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -14,7 +14,7 @@
 }
 
 .cell {
-  height: 100px;
-  width: 100px;
-  background-color: black;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
 }
