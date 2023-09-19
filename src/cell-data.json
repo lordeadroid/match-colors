@@ -1,0 +1,6 @@
+[
+  { "id": 1, "color": "red", "status": "closed" },
+  { "id": 1, "color": "red", "status": "closed" },
+  { "id": 2, "color": "teal", "status": "closed" },
+  { "id": 2, "color": "teal", "status": "closed" }
+]
