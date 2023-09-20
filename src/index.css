@@ -42,3 +42,14 @@ p {
   width: 150px;
   border-radius: 50%;
 }
+
+#play-button {
+  width: 150px;
+  height: 50px;
+  font-size: 1.5em;
+  color: teal;
+  font-weight: 500;
+  background-color: whitesmoke;
+  border-radius: 25px;
+  align-self: center;
+}

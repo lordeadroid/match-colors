@@ -42,13 +42,7 @@ const Game = () => {
     if (click.length === 2) return check();
   };
 
-  return (
-    <div className="container">
-      <h1>Match Colors</h1>
-      <CountDown />
-      <Cells cellDetails={cellDetails} handleClick={handleClick} />
-    </div>
-  );
+  return <Cells cellDetails={cellDetails} handleClick={handleClick} />;
 };
 
 export default Game;

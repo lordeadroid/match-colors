@@ -1,7 +1,7 @@
-import Game from './game';
+import HomePage from './home-page';
 
 const App = () => {
-  return <Game />;
+  return <HomePage />;
 };
 
 export default App;
