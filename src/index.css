@@ -5,12 +5,36 @@
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+h1 {
+  font-size: 4em;
+  color: teal;
+}
+
+p {
+  font-size: 2em;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+}
+
+.counter {
+  height: 2em;
+  text-align: center;
+}
+
 .cells {
   width: 675px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 25px;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
 }
 
 .cell {

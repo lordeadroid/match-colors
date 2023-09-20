@@ -1,6 +1,25 @@
 import { useEffect, useState } from 'react';
 import * as data from './cell-data.json';
 
+const CountDown = () => {
+  const vals = ['Ready', 'Set', 'Go', ''];
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (count === 3) return;
+      setCount(count + 1);
+    }, 950);
+
+    return () => clearInterval(intervalId);
+  });
+  return (
+    <div className="counter">
+      <p>{vals[count]}</p>
+    </div>
+  );
+};
+
 const colors = {
   done: 'gray',
   closed: 'black',
@@ -82,7 +101,13 @@ const Game = () => {
     if (click.length === 2) return check();
   };
 
-  return <Cells cellDetails={cellDetails} handleClick={handleClick} />;
+  return (
+    <div className="container">
+      <h1>Match Colors</h1>
+      <CountDown />
+      <Cells cellDetails={cellDetails} handleClick={handleClick} />
+    </div>
+  );
 };
 
 export default Game;
