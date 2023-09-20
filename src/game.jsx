@@ -1,58 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as data from './cell-data.json';
-
-const CountDown = () => {
-  const vals = ['Ready', 'Set', 'Go', ''];
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (count === 3) return;
-      setCount(count + 1);
-    }, 950);
-
-    return () => clearInterval(intervalId);
-  });
-  return (
-    <div className="counter">
-      <p>{vals[count]}</p>
-    </div>
-  );
-};
-
-const colors = {
-  done: 'gray',
-  closed: 'black',
-};
-
-const findBGColor = (color, status) =>
-  status === 'clicked' ? color : colors[status];
-
-const Cell = ({ cellDetail: { color, status }, handleClick, index }) => {
-  const backgroundColor = findBGColor(color, status);
-  return (
-    <div
-      className={`cell`}
-      style={{ backgroundColor }}
-      onClick={() => handleClick(index, color)}
-    ></div>
-  );
-};
-
-const Cells = ({ cellDetails, handleClick }) => {
-  const cells = cellDetails.map((cellDetail, index) => {
-    return (
-      <Cell
-        key={index}
-        cellDetail={cellDetail}
-        index={index}
-        handleClick={handleClick}
-      />
-    );
-  });
-
-  return <div className="cells">{cells}</div>;
-};
+import Cells from './cells';
+import CountDown from './counter';
 
 const Game = () => {
   const cellData = data.default.sort(() => Math.random() - 0.5);
@@ -65,32 +14,24 @@ const Game = () => {
       cellDetail.status = 'closed';
       return cellDetail;
     });
+
     setTimeout(() => {
       setCellDetails(newCellData);
     }, 3000);
   }, []);
 
-  const markdone = (first, second) => {
+  const update = (first, second, status) => {
     setTimeout(() => {
-      cellDetails[first.index].status = 'done';
-      cellDetails[second.index].status = 'done';
-      setCellDetails([...cellDetails]);
-      setClicks([]);
-    }, 500);
-  };
-
-  const reset = (first, second) => {
-    setTimeout(() => {
-      cellDetails[first.index].status = 'closed';
-      cellDetails[second.index].status = 'closed';
+      cellDetails[first.index].status = status;
+      cellDetails[second.index].status = status;
       setCellDetails([...cellDetails]);
       setClicks([]);
     }, 500);
   };
 
   const check = () => {
-    if (click[0].color === click[1].color) return markdone(click[0], click[1]);
-    reset(click[0], click[1]);
+    const status = click[0].color === click[1].color ? 'done' : 'closed';
+    update(click[0], click[1], status);
   };
 
   const handleClick = (index, color) => {
