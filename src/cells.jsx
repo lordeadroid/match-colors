@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 const colors = {
   done: 'gray',
   closed: 'black',
@@ -8,11 +10,15 @@ const findBGColor = (color, status) =>
 
 const Cell = ({ cellDetail: { color, status }, handleClick, index }) => {
   const backgroundColor = findBGColor(color, status);
+  const ref = useRef(null);
   return (
     <div
       className={`cell`}
       style={{ backgroundColor }}
-      onClick={() => handleClick(index, color)}
+      onClick={
+        status === 'done' ? () => {} : () => handleClick(index, color, ref)
+      }
+      ref={ref}
     ></div>
   );
 };
