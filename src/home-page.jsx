@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Game from "./game";
-import CountDown from "./counter";
 
 const HomePage = () => {
   const [clicked, setClicked] = useState(false);
@@ -10,10 +9,7 @@ const HomePage = () => {
   };
 
   const insideItem = clicked ? (
-    <>
-      <CountDown />
-      <Game />
-    </>
+    <Game />
   ) : (
     <input type="button" value="Play" id="play-button" onClick={handleClick} />
   );
