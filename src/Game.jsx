@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as data from "./cell-data.json";
-import Cells from "./cells";
-import CountDown from "./counter";
+import Cells from "./Cells";
+import CountDown from "./Counter";
 
 const Game = () => {
   const cellData = data.default.sort(() => Math.random() - 0.5);

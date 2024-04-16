@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Game from "./game";
+import Game from "./Game";
 
 const HomePage = () => {
   const [clicked, setClicked] = useState(false);
