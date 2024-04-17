@@ -56,8 +56,14 @@ const Game = () => {
 
   return (
     <>
-      {gameOver ? <div>Game Over</div> : <CountDown />}
-      <Cells cellDetails={cellDetails} handleClick={handleClick} />
+      {gameOver ? (
+        <div className="counter">Game Over</div>
+      ) : (
+        <>
+          <CountDown />
+          <Cells cellDetails={cellDetails} handleClick={handleClick} />
+        </>
+      )}
     </>
   );
 };

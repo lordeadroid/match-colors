@@ -7,21 +7,21 @@ const HomePage = () => {
   const contentToDisplay = clicked ? (
     <Game />
   ) : (
-    <input
-      type="button"
-      value="Play"
-      id="play-button"
+    <div
+      className="start-button center"
       onClick={() => {
         setClicked(true);
       }}
-    />
+    >
+      Start
+    </div>
   );
 
   return (
-    <div className="container">
-      <h1>Match Colors</h1>
+    <>
+      <div className="heading">Match Colors</div>
       {contentToDisplay}
-    </div>
+    </>
   );
 };
 

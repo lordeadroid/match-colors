@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const CountDown = () => {
-  const vals = ['Ready', 'Set', 'Go', ''];
+  const vals = ["Ready", "Set", "Go", ""];
   const [started, setStarted] = useState(false);
   const [count, setCount] = useState(0);
 
@@ -19,9 +19,7 @@ const CountDown = () => {
   }, [count, started]);
 
   return (
-    <div className="counter">
-      <p>{started ? `Time: ${count}` : vals[count]}</p>
-    </div>
+    <div className="counter">{started ? `Time: ${count}` : vals[count]}</div>
   );
 };
 
