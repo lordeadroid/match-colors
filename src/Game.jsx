@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as data from "./cell-data.json";
+import * as data from "../data/cell-data.json";
 import Cells from "./Cells";
 import CountDown from "./Counter";
 
